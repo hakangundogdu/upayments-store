@@ -1,24 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col items-center justify-center h-screen text-slate-900 bg-slate-50 ">
+      <img
+        src="https://upayments.com/en/wp-content/uploads/sites/4/2020/07/upay-logo.png"
+        alt="upay-logo"
+        className="w-auto h-10"
+      />
+      <p className="mt-6 text-2xl ">UPayments Store.</p>
     </div>
   );
 }

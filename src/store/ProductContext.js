@@ -31,6 +31,24 @@ export const ProductProvider = (props) => {
     setProduct(data);
   };
 
+  const createProduct = async (product) => {
+    const response = await fetch(
+      'https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(product),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error('There was an error.');
+    }
+    getProductList();
+  };
+
   const deleteProduct = async (id) => {
     const response = await fetch(
       `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`,
@@ -52,6 +70,7 @@ export const ProductProvider = (props) => {
       value={{
         getProductList,
         getProduct,
+        createProduct,
         deleteProduct,
         productList,
         product,

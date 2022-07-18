@@ -9,7 +9,7 @@ const Product = ({ product }: any) => {
           <img
             src={product.avatar}
             alt={product.name}
-            className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+            className="w-full h-full object-center object-contain p-2 lg:w-full lg:h-full"
           />
         </div>
         <div className="mt-4 flex justify-between">

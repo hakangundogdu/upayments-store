@@ -15,7 +15,7 @@ const Product = ({ product }) => {
         <img
           src={product.avatar}
           alt={product.name}
-          className="w-auto h-80 object-center border border-slate-100 object-cover rounded-lg overflow-hidden"
+          className="w-auto h-80 object-center border border-slate-100 object-contain p-2 rounded-lg overflow-hidden"
         />
         <div className="ml-12 py-8 h-full ">
           <div className="  bg-indigo-100 text-center font-medium text-sm text-indigo-800 px-4 py-1 w-max rounded-lg  ">

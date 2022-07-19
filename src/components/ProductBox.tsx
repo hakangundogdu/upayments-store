@@ -14,8 +14,8 @@ const ProductBox = ({ product }: any) => {
         </div>
         <div className="mt-4 flex justify-between">
           <div>
-            <h3 className="text-sm text-gray-700">
-              <span aria-hidden="true" className="absolute inset-0" />
+            <h3 className="text-sm text-gray-700 mr-3">
+              <span aria-hidden="true" className="absolute inset-0 " />
               {product.name}
             </h3>
           </div>

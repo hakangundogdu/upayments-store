@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import { useProduct } from '../store/product-context';
 import { useNavigate } from 'react-router-dom';
+import { useProduct } from '../store/product-context';
 
 const NewProduct: React.FC = () => {
   const { createProduct } = useProduct();

@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Error = () => {
   return (
     <div className="flex flex-col place-content-center mt-36 ">

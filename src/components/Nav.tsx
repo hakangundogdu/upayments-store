@@ -7,10 +7,10 @@ const Nav = () => {
           alt="upay-logo"
           className="w-auto h-6"
         />
-        <p className="text-xl ml-4  text-gray-900">Store</p>
+        <p className="text-xl ml-4 font-bold text-indigo-600">Store</p>
       </a>
 
-      <button className="hover:text-slate-900  text-slate-600">
+      <button className="hover:text-indigo-800  text-slate-600">
         Register{' '}
       </button>
     </header>

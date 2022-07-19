@@ -1,20 +1,20 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Nav from './components/Nav';
-import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 import ProductDetailPage from './pages/ProductDetailPage';
-import NewProduct from './pages/NewProduct';
-import Error from './pages/Error';
+import NewProductPage from './pages/NewProduct';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
   return (
     <Layout>
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/product/:id" element={<ProductDetailPage />} />
-        <Route path="/newproduct" element={<NewProduct />} />
-        <Route path="*" element={<Error />} />
+        <Route path="/newproduct" element={<NewProductPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Layout>
   );

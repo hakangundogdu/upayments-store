@@ -25,6 +25,8 @@ const ProductContext = createContext<ProductContextType>({
 
 export const ProductContextProvider: React.FC<Props> = (props) => {
   const [productList, setProductList] = useState<Product[]>([]);
+
+  //product that clicked.
   const [product, setProduct] = useState<Product>({} as Product);
 
   const getProductList = async () => {

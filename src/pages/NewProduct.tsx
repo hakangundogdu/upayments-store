@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useProduct } from '../store/product-context';
 
-const NewProduct: React.FC = () => {
+const NewProductPage: React.FC = () => {
   const { createProduct } = useProduct();
   const navigate = useNavigate();
 
@@ -133,4 +133,4 @@ const NewProduct: React.FC = () => {
   );
 };
 
-export default NewProduct;
+export default NewProductPage;

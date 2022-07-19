@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useProduct } from '../store/product-context';
 import { HiOutlinePlusSm } from 'react-icons/hi';
 
-const Home = () => {
+const HomePage = () => {
   const { getProductList, productList } = useProduct();
   const categoryRef = useRef<HTMLSelectElement>(null);
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
@@ -82,4 +82,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

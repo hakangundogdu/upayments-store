@@ -70,7 +70,9 @@ const Home = () => {
               ))
             ) : (
               <p className="text-xl font-bold tracking-tight text-gray-900">
-                'No Products in this category'
+                {selectedCategory !== 'All Categories'
+                  ? 'No Products in this category'
+                  : 'Loading...'}
               </p>
             )}
           </div>

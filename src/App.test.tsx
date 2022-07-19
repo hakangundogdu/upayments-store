@@ -1,9 +1,19 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import Nav from './components/Nav';
+import Home from './pages/Home';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('Nav Bar', () => {
+  render(<Nav />);
+  expect(screen.getByText('Register')).toBeInTheDocument();
+});
+
+test('NAv Page', () => {
+  render(<Nav />);
+  expect(screen.getByText('Store')).toBeInTheDocument();
+});
+
+test('Home Page', () => {
+  render(<Home />);
+  expect(screen.getByText('Add Product')).toBeInTheDocument();
 });

@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { ProductProvider } from './store/ProductContext';
+import { ProductContextProvider } from './store/product-context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ProductProvider>
+    <ProductContextProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ProductProvider>
+    </ProductContextProvider>
   </React.StrictMode>
 );

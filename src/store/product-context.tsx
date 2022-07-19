@@ -1,10 +1,32 @@
 import { createContext, useState, useContext } from 'react';
+import React from 'react';
+import { Product } from '../types';
 
-const ProductContext = createContext();
+interface Props {
+  children: React.ReactNode;
+}
 
-export const ProductProvider = (props) => {
-  const [productList, setProductList] = useState([]);
-  const [product, setProduct] = useState([]);
+type ProductContextType = {
+  getProductList: () => void;
+  getProduct: (id: string) => void;
+  createProduct: (product: Product) => void;
+  deleteProduct: (id: string) => void;
+  productList: Product[];
+  product: Product;
+};
+
+const ProductContext = createContext<ProductContextType>({
+  getProductList: () => {},
+  getProduct: (id: string) => {},
+  createProduct: (product: Product) => {},
+  deleteProduct: (id: string) => {},
+  productList: [],
+  product: {} as Product,
+});
+
+export const ProductContextProvider: React.FC<Props> = (props) => {
+  const [productList, setProductList] = useState<Product[]>([]);
+  const [product, setProduct] = useState<Product>({} as Product);
 
   const getProductList = async () => {
     const response = await fetch(
@@ -19,7 +41,7 @@ export const ProductProvider = (props) => {
     setProductList(data);
   };
 
-  const getProduct = async (id) => {
+  const getProduct = async (id: string) => {
     const response = await fetch(
       `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`
     );
@@ -31,7 +53,7 @@ export const ProductProvider = (props) => {
     setProduct(data);
   };
 
-  const createProduct = async (product) => {
+  const createProduct = async (product: Product) => {
     const response = await fetch(
       'https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/',
       {
@@ -49,7 +71,7 @@ export const ProductProvider = (props) => {
     getProductList();
   };
 
-  const deleteProduct = async (id) => {
+  const deleteProduct = async (id: string) => {
     const response = await fetch(
       `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`,
       {
@@ -65,17 +87,17 @@ export const ProductProvider = (props) => {
     getProductList();
   };
 
+  const contextValue: ProductContextType = {
+    getProductList,
+    getProduct,
+    createProduct,
+    deleteProduct,
+    productList,
+    product,
+  };
+
   return (
-    <ProductContext.Provider
-      value={{
-        getProductList,
-        getProduct,
-        createProduct,
-        deleteProduct,
-        productList,
-        product,
-      }}
-    >
+    <ProductContext.Provider value={contextValue}>
       {props.children}
     </ProductContext.Provider>
   );

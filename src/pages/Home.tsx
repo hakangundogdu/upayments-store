@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import Product from '../components/Product';
+import ProductBox from '../components/ProductBox';
 import { Link } from 'react-router-dom';
-import { useProduct } from '../store/ProductContext';
+import { useProduct } from '../store/product-context';
 import { HiOutlinePlusSm } from 'react-icons/hi';
+import { Product } from '../types';
 
 const Home = () => {
   const { getProductList, productList } = useProduct();
@@ -15,7 +16,6 @@ const Home = () => {
 
   const filterHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategory(categoryRef.current.value);
-    console.log(filteredList);
   };
 
   const filteredList = productList.filter(
@@ -69,16 +69,9 @@ const Home = () => {
             </div>
 
             <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 ">
-              {list.map(
-                (product: {
-                  id: number;
-                  name: string;
-                  price: number;
-                  avatar: string;
-                }) => (
-                  <Product product={product} key={product.id} />
-                )
-              )}
+              {list.map((product: Product) => (
+                <ProductBox product={product} key={product.id} />
+              ))}
             </div>
           </div>
         </div>

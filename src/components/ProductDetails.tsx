@@ -1,7 +1,7 @@
-import { useProduct } from '../store/ProductContext';
+import { useProduct } from '../store/product-context';
 import { useNavigate } from 'react-router-dom';
 
-const Product = ({ product }) => {
+const ProductDetails = ({ product }) => {
   const { deleteProduct } = useProduct();
   const navigate = useNavigate();
 
@@ -43,4 +43,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default ProductDetails;

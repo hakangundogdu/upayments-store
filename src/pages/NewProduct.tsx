@@ -1,8 +1,8 @@
 import { useRef } from 'react';
-import { useProduct } from '../store/ProductContext';
+import { useProduct } from '../store/product-context';
 import { useNavigate } from 'react-router-dom';
 
-const NewProductTs = () => {
+const NewProduct: React.FC = () => {
   const { createProduct } = useProduct();
   const navigate = useNavigate();
 
@@ -12,15 +12,24 @@ const NewProductTs = () => {
   const categoryRef = useRef<HTMLSelectElement>(null);
   const priceRef = useRef<HTMLInputElement>(null);
 
-  function submitHandler(event: React.FormEvent<HTMLFormElement>) {
+  interface product {
+    name: string;
+    description: string;
+    avatar: string;
+    category: string;
+    price: number;
+    developerEmail?: string;
+  }
+
+  function submitHandler(event: React.FormEvent) {
     event.preventDefault();
 
-    const product = {
-      name: nameRef.current.value,
-      description: descriptionRef.current.value,
-      avatar: avatarRef.current.value,
-      category: categoryRef.current.value,
-      price: priceRef.current.value,
+    const product: product = {
+      name: nameRef.current?.value,
+      description: descriptionRef.current?.value,
+      avatar: avatarRef.current?.value,
+      category: categoryRef.current?.value,
+      price: parseInt(priceRef.current?.value),
       developerEmail: 'developer@gmail.com',
     };
     createProduct(product);
@@ -124,4 +133,4 @@ const NewProductTs = () => {
   );
 };
 
-export default NewProductTs;
+export default NewProduct;

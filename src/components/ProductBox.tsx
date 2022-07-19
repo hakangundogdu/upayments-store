@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import CurrencyFormat from 'react-currency-format';
 
-const Product = ({ product }: any) => {
+const ProductBox = ({ product }: any) => {
   return (
     <Link to={`/product/${product.id}`}>
       <div className="group relative">
@@ -33,4 +33,4 @@ const Product = ({ product }: any) => {
   );
 };
 
-export default Product;
+export default ProductBox;

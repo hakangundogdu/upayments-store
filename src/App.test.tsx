@@ -1,19 +1,13 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 
-test('Nav Bar', () => {
+test('Nav - Register Button visible', () => {
   render(<Nav />);
   expect(screen.getByText('Register')).toBeInTheDocument();
 });
 
-test('NAv Page', () => {
+test('Nav - Logo Text visible', () => {
   render(<Nav />);
   expect(screen.getByText('Store')).toBeInTheDocument();
-});
-
-test('Home Page', () => {
-  render(<Home />);
-  expect(screen.getByText('Add Product')).toBeInTheDocument();
 });
